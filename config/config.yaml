@@ -1,0 +1,3 @@
+apiVersion: hello.tjololo.net/v1alpha1
+kind: Hello
+projectName: hello-operator

@@ -1,0 +1,4 @@
+apiVersion: "hello.tjololo.net/v1alpha1"
+kind: "Hello"
+metadata:
+  name: "example"
