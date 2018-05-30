@@ -33,6 +33,7 @@ func (h *Handler) Handle(ctx context.Context, event sdk.Event) error {
 	return nil
 }
 
+
 // newbusyBoxPod demonstrates how to create a busybox pod
 func newbusyBoxPod(cr *v1alpha1.Hello) *v1.Pod {
 	labels := map[string]string{
@@ -60,9 +61,11 @@ func newbusyBoxPod(cr *v1alpha1.Hello) *v1.Pod {
 				{
 					Name:    "busybox",
 					Image:   "busybox",
-					Command: []string{"sleep", "3600"},
+					Command: []string{"/bin/sh"},
+					Args: []string{"-c","while true; do echo hello; sleep 100;done"},
 				},
 			},
+			RestartPolicy: v1.RestartPolicyAlways,
 		},
 	}
 }
